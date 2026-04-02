@@ -31,17 +31,20 @@ Feature ที่ใช้ในการจำแนกประกอบด้
 ### 2.1 Random Forest (50 Trees)
 -	Overall Accuracy: 0.7938
 -	Kappa Coefficient: 0.7311
+-	F1-score: [0, 0.93, 1.00, 0.83, 0.40, 0.25]
 ### 2.2 Random Forest (100 Trees)
 -	Overall Accuracy: 0.7835
 -	Kappa Coefficient: 0.7181
+-	F1-score: [0, 0.93, 1.00, 0.81, 0.38, 0.25]
 ### 2.3 Gradient Tree Boost (GTB)
 -	Overall Accuracy: 0.7938
 -	Kappa Coefficient: 0.7327
+-	F1-score: [0, 0.93, 1.00, 0.81, 0.38, 0.25]
 ### 2.4 การวิเคราะห์ผล
 จากผลการทดลองพบว่า 
--	Random Forest ที่ใช้ 50 ต้นไม้ (trees) ให้ผลลัพธ์ที่ดีกว่าแบบ 100 trees เล็กน้อย
+-	Random Forest ที่ใช้ 50 ต้นไม้ (trees) ให้ผลลัพธ์ที่ดีกว่าแบบ 100 trees เล็กน้อย Random Forest (50 trees) และ Gradient Tree Boost ให้ Accuracy ใกล้เคียงกัน
 -	Gradient Tree Boost ให้ค่า Kappa สูงที่สุด แสดงถึงความสอดคล้องของการจำแนกที่ดี
--	การเพิ่มจำนวนต้นไม้ใน Random Forest ไม่ได้ส่งผลให้ความแม่นยำเพิ่มขึ้นเสมอไป และอาจเกิดภาวะ overfitting
+-	การเพิ่มจำนวน trees ใน Random Forest ไม่ได้ช่วยเพิ่มประสิทธิภาพในกรณีนี้ อาจเนื่องจากข้อมูลมีขนาดจำกัดและมีความซ้ำซ้อนเชิงพื้นที่
 ### 2.5 Metrics ที่ใช้ในการประเมิน
 -	Overall Accuracy
 -	Kappa Coefficient
@@ -61,7 +64,7 @@ Feature ที่ใช้ในการจำแนกประกอบด้
 ### 4.1 Class ที่มีความสับสนสูง
 จาก Confusion Matrix พบว่า
 -	Urban และ Barren มีความสับสนกันสูง
--	Agriculture และ Forest มีความคล้ายคลึงกันในบางกรณี
+-	Agriculture และ Forest มีความคล้ายคลึงกัน
 สาเหตุเกิดจากลักษณะ spectral ที่ใกล้เคียงกัน เช่น พื้นที่เกษตรบางช่วงมีลักษณะคล้ายป่า หรือพื้นที่ก่อสร้างมีลักษณะคล้ายดินเปล่า
 ### 4.2 พื้นที่ที่โมเดลมีความไม่แน่นอน
 พื้นที่ที่โมเดลมีความไม่แน่นอนสูง ได้แก่
